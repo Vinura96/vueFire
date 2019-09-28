@@ -4,9 +4,31 @@
 
 <div id="app">
     <home-component></home-component>
-    <h1>free</h1>
+    <h1>DATA</h1>
+    <p id="data"></p>
 </div>
 <!--class="text-center" class="display-4"-->
-@section Scripts{ 
+@section Scripts{
     <script src="@Url.Content("~/bundle/home.js")"></script>
 }
+<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyASQHBnELZDtppVMqaLZdFHQzet-6wdnoQ",
+        authDomain: "hcyc-53842.firebaseapp.com",
+        databaseURL: "https://hcyc-53842.firebaseio.com",
+        projectId: "hcyc-53842",
+        storageBucket: "",
+        messagingSenderId: "100032455908",
+        appId: "1:100032455908:web:3456d2952d6a51a269f8f1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var ref = firebase.database().ref();
+    ref.on("value", function (snapshot) {
+        console.log(JSON.stringify(snapshot.val(), null, 2));
+        document.getElementById('data').innerHTML = JSON.stringify(snapshot.val(), null, 2)
+    });
+</script>

@@ -43,4 +43,5 @@
     export default {
         name: 'home-component'
     };
+
 </script>

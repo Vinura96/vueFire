@@ -1,5 +1,5 @@
 {
-  "name": "vue-mvc",
+  "name": "firebaseproject",
   "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev WATCH=true webpack --env.watch=true --progress --hide-modules",
@@ -22,5 +22,17 @@
     "vue-loader": "^9.8.0",
     "webpack": "^3.5.4",
     "webpack-cli": "^3.3.6"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinura96/vueFire.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vinura96/vueFire/issues"
+  },
+  "homepage": "https://github.com/Vinura96/vueFire#readme",
+  "description": ""
 }
