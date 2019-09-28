@@ -15,6 +15,35 @@ namespace vueFire.Controllers
             return View();
         }
 
+        public IActionResult Shortccttest()
+        {
+            return View();
+        }
+
+        public IActionResult CCTest()
+        {
+            return View();
+        }
+
+        public IActionResult ChargeRecovery()
+        {
+            return View();
+        }
+
+        public IActionResult ChargeRetention()
+        {
+            return View();
+        }
+
+        public IActionResult Enduarance()
+        {
+            return View();
+        }
+
+        public IActionResult OverchargeTest()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
