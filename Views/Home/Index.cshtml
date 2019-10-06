@@ -4,8 +4,6 @@
 
 <div id="app">
     <home-component></home-component>
-    <h1>DATA</h1>
-    <p id="data"></p>
 </div>
 <!--class="text-center" class="display-4"-->
 @section Scripts{
@@ -16,19 +14,24 @@
 <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-        apiKey: "AIzaSyASQHBnELZDtppVMqaLZdFHQzet-6wdnoQ",
-        authDomain: "hcyc-53842.firebaseapp.com",
-        databaseURL: "https://hcyc-53842.firebaseio.com",
-        projectId: "hcyc-53842",
+        apiKey: "AIzaSyB_N4gMHf1BrJpa2KsWqedPIH6hRe7W4YY",
+        authDomain: "data-ad105.firebaseapp.com",
+        databaseURL: "https://data-ad105.firebaseio.com",
+        projectId: "data-ad105",
         storageBucket: "",
-        messagingSenderId: "100032455908",
-        appId: "1:100032455908:web:3456d2952d6a51a269f8f1"
+        messagingSenderId: "247957285740",
+        appId: "1:247957285740:web:8179a6345329a72dfca149",
+        measurementId: "G-ZRTC3D3V7P"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     var ref = firebase.database().ref();
     ref.on("value", function (snapshot) {
-        console.log(JSON.stringify(snapshot.val(), null, 2));
-        document.getElementById('data').innerHTML = JSON.stringify(snapshot.val(), null, 2)
+        console.log();
+        var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+        console.log(obj);
+       
     });
 </script>
+
+
