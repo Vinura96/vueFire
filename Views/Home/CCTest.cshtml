@@ -4,5 +4,72 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>CCTest</h1>
 
+<style type="text/css">
+    .grey {
+        background-color: lightgray
+    }
+
+</style>
+
+<body class="grey">
+    <div style="font-size:36px;font-weight: bold;text-align:center;margin-bottom:50px">Countiunes Charge Test</div>
+    <span style="font-size:22px;font-weight: bold;margin-bottom:15px">Please Follow The Below Steps</span>
+    <div style="font-size:20px;font-weight: bold;margin-bottom:25px">
+        <ol>
+            <li>Charge the battray according with the method declared by the manufacuture </li>
+            <li>Hold the battary at the specfied end-of-charge voltage for a total period of 28 days.</li>
+        </ol>
+    </div>
+    <div style="font-size:18px;font-weight: bold;text-align:left;margin-bottom:10px;"> Observations</div>
+    <div style="font-size:16px;font-weight: bold;text-align:left;margin-bottom:50px;">
+        <div>
+            <span> ANY LEAKAGES</span>
+            <label class="radio-inline">
+                <input type="radio" name="A1">YES
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="A1">NO
+            </label>
+        </div>
+        <div>
+            <span> ANY VENTING</span>
+            <label class="radio-inline">
+                <input type="radio" name="A1">YES
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="A1">NO
+            </label>
+        </div>
+        <div>
+            <span> ANY EXPOLTION</span>
+            <label class="radio-inline">
+                <input type="radio" name="F1">YES
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="F1">NO
+            </label>
+        </div>
+    </div>
+
+    <ul style="font-size:18px;font-weight: bold;margin-bottom:25px">
+        <li>State note C if all the Observations were</li>
+        <span>
+            <label class="radio-inline">
+                <input type="radio" name="last1">NO
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="last1">YES
+            </label>
+        </span>
+        <li>State node D if one of 2 observation were</li>
+        <span>
+            <label class="radio-inline">
+                <input type="radio" name="last2">NO
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="last2">YES
+            </label>
+        </span>'
+    </ul>
+</body>
