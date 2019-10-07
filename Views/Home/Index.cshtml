@@ -27,7 +27,6 @@
     firebase.initializeApp(firebaseConfig);
     var ref = firebase.database().ref();
     ref.on("value", function (snapshot) {
-        console.log();
         var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
         console.log(obj);
        
