@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Result Sheet</h1>
+
+<div>
+    <span>Rated Capacity = </span><span><input type="text" /></span>
+</div>
+<br />
+<div><span>State of Health = </span><span><input type="text" /></span></div>
+<br />
+<div>
+    <p>
+        The SOH Test was performed considering only the capacity because battery capacsity deteriorate fairly linearly with age or cycle life.
+        But other than the capacity, internal resistance, self-discharge acceptance, discharge capabilities might also effect the SOH.)
+    </p>
+</div>
+<div><span>Enduarance in Cycles = </span><span><input type="text" /></span><span>cycles</span></div>
+<br />
+<div><span>Charge Retention And Recovery = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
+<br />
+<div><span>Charge Recovery After Storage = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
+<br />
+<div><p><h3>Short Circuit Test</h3></p><br /><p id="sct"></p></div>
+<div><p><h3>Continuous Charge Test</h3></p><br /><p id="cct"></p></div>
+<div><p><h3>Over Charge Test</h3></p><br /><p id="oct"></p></div>

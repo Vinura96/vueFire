@@ -44,6 +44,11 @@ namespace vueFire.Controllers
         {
             return View();
         }
+
+        public IActionResult Result()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

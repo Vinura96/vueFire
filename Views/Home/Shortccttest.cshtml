@@ -3,14 +3,75 @@
     ViewData["Title"] = "shortccttest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    input[type=checkbox] {
+        -ms-transform: scale(2);
+        -moz-transform: scale(2);
+        -webkit-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+        padding: 10px;
+    }
 
-<h1>Short Circuit Test</h1><br />
-                           <p>
-                               Please Follow the below Steps<br />
-                               1. Conduct two seperate tests, one in ambient temperature of 20&#176;C &#177; 5&#176;C and one in an ambient temperature of 55&#176;C &#177; 2&#176;C<br />
-                               (external resistance should be less than 50m&#937;)<br />
-                               2. Continue the tests until the battery voltage falls below 0.1V or the electronic circuit or the current limiting device prevents further discharge and the cell case temperature has returned to //notclear within 10&#176;C of
-                               the original temperature.<br />
-                           </p>
+    <!-- Might want to wrap a span around your checkbox text -->
+    .checkboxtext {
+        font-size: 110%;
+        display: inline;
+    }
+    input#yes1{
+        margin-left: 115px;
+    }
+    input#yes2{
+        margin-left: 182px;
+    }
+    input#yes3{
+        margin-left: 8px;
+    }
+    input#no1{
+        margin-left: 45px;
+    }
+    input#no2{
+        margin-left: 45px;
+    }
+    input#no3{
+        margin-left: 45px;
+    }
+</style>
 
-<img src="~/SCT.jpeg"/>
+<h1>Short Circuit Test</h1>
+<br />
+<p>
+    Please Follow the below Steps<br />
+    1. Conduct two seperate tests, one in ambient temperature of 20&#176;C &#177; 5&#176;C and one in an ambient temperature of 55&#176;C &#177; 2&#176;C<br />
+    (external resistance should be less than 50m&#937;)<br />
+    2. Continue the tests until the battery voltage falls below 0.1V or the electronic circuit or the current limiting device prevents further discharge and the cell case temperature has returned to //notclear within 10&#176;C of
+    the original temperature.<br />
+</p>
+<h3>Observations :-&emsp; YES&emsp;NO</h3>
+<div>
+    <span>Any Explotions? </span>
+    <span><input type="checkbox" name="yes1" id="yes1" /></span>
+    <span><input type="checkbox" name="no1" id="no1" /></span>
+</div>
+<br />
+<div>
+    <span>Fine?</span>
+    <span><input type="checkbox" name="yes2" id="yes2" /></span>
+    <span><input type="checkbox" name="no2" id="no2" /></span>
+</div>
+<br />
+<div>
+    <span>Exterior temperature than 150&#176;C?</span>
+    <span><input type="checkbox" name="yes3" id="yes3" /></span>
+    <span><input type="checkbox" name="no3" id="no3" /></span>
+</div>
+<br />
+<div>
+    <span>
+        According to the observations,<br />
+        Note A: The battery could withstand a short circuit condition. Therefore the battery is upto the standard conditions.<br />
+        Note B: The battery couldn't withstand a short circuit condition. Therefore the battery is not upto the standard.<br />
+    </span>
+</div>
+
+<img src="~/SCT.jpeg" />
