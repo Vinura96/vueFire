@@ -3,6 +3,19 @@
     ViewData["Title"] = "shortccttest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    function passValues() {
+        var f = document.getElementById("yes1");
+        var g = document.getElementById("yes2");
+        var h = document.getElementById("yes3");
+        if (f.checked && g.checked && h.checked) {
+            localStorage.setItem('checked', 'yes');
+        } else {
+            localStorage.setItem('checked', 'no');
+        }
+        return false;
+    }
+</script>
 <style>
     input[type=checkbox] {
         -ms-transform: scale(2);
@@ -73,5 +86,8 @@
         Note B: The battery couldn't withstand a short circuit condition. Therefore the battery is not upto the standard.<br />
     </span>
 </div>
-
-<img src="~/SCT.jpeg" />
+<div>
+    <form action="https://localhost:44354/">
+        <input type="submit" value="click" onclick="passValues();" />
+    </form>
+</div>

@@ -1,10 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div id="app">
-    <home-component></home-component>
-</div>
+    <body class="grey">
+        <div id="app">
+            <home-component></home-component>
+        </div>
+    </body>
 <!--class="text-center" class="display-4"-->
 @section Scripts{
     <script src="@Url.Content("~/bundle/home.js")"></script>
@@ -32,5 +33,10 @@
        
     });
 </script>
+<style>
+    .grey {
+        background-color: lightgray
+    }
+</style>
 
 

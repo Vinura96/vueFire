@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "RatedCapacity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .grey {
+        background-color: lightgray
+    }
+
+    .box {
+        background-color: lightgrey;
+        width: 300px;
+        border: 10px solid green;
+        padding: 25px;
+        margin: 10px;
+    }
+</style>
+
+
+<body class="grey">
+    <div>
+        <div style="font-size:36px;font-weight: bold;text-align:center;margin-bottom:50px">Rated Capacity</div>
+        <span style="font-size:22px;font-weight: bold;margin-bottom:15px">Please Follow The Below Steps</span>
+        <div style="font-size:20px;font-weight: bold;margin-bottom:80px">
+            <ol>
+                <li>Charge the battray according to the method declared by the manufacuturer.</li>
+                <li>Store the battary in ambient temperature of 20&#176;C &#177; 5&#176;C for not less than 1hour and not more than 4hours.</li>
+                <li>Discharge the battery in ambient temperature of 20&#176;C &#177; 5&#176;C at a constant current of 0.2I<sub>t</sub>A until the battery voltage is less than or equal to the specified end of discharge voltage.</li>
+            </ol>
+        </div><br />
+        <div>
+            <ul>
+                <li>The Rated capacity of the battery:</li>
+            </ul>
+            <br />
+            <pre>             = (0.2I<sub>t</sub>) x T</pre>
+            <pre>             = <input type="text" name="RatedCapacity" value=""/> Ah</pre>
+        </div>
+    </div>
+</body>

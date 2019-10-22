@@ -25,6 +25,11 @@ namespace vueFire.Controllers
             return View();
         }
 
+        public IActionResult RatedCapacity()
+        {
+            return View();
+        }
+
         public IActionResult ChargeRecovery()
         {
             return View();

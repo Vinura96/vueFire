@@ -4,26 +4,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Result Sheet</h1>
+<style type="text/css">
+    .grey {
+        background-color: lightgray
+    }
 
-<div>
-    <span>Rated Capacity = </span><span><input type="text" /></span>
-</div>
-<br />
-<div><span>State of Health = </span><span><input type="text" /></span></div>
-<br />
-<div>
-    <p>
-        The SOH Test was performed considering only the capacity because battery capacsity deteriorate fairly linearly with age or cycle life.
-        But other than the capacity, internal resistance, self-discharge acceptance, discharge capabilities might also effect the SOH.)
-    </p>
-</div>
-<div><span>Enduarance in Cycles = </span><span><input type="text" /></span><span>cycles</span></div>
-<br />
-<div><span>Charge Retention And Recovery = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
-<br />
-<div><span>Charge Recovery After Storage = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
-<br />
-<div><p><h3>Short Circuit Test</h3></p><br /><p id="sct"></p></div>
-<div><p><h3>Continuous Charge Test</h3></p><br /><p id="cct"></p></div>
-<div><p><h3>Over Charge Test</h3></p><br /><p id="oct"></p></div>
+    .box {
+        background-color: lightgrey;
+        width: 300px;
+        border: 10px solid green;
+        padding: 25px;
+        margin: 10px;
+    }
+</style>
+
+<body class="grey">
+
+    <h1>Result Sheet</h1>
+
+    <div>
+        <span>Rated Capacity = </span><span><input type="text" /></span>
+    </div>
+    <br />
+    <div><span>State of Health = </span><span><input type="text" /></span></div>
+    <br />
+    <div>
+        <p>
+            The SOH Test was performed considering only the capacity because battery capacsity deteriorate fairly linearly with age or cycle life.
+            But other than the capacity, internal resistance, self-discharge acceptance, discharge capabilities might also effect the SOH.)
+        </p>
+    </div>
+    <div><span>Enduarance in Cycles = </span><span><input type="text" /></span><span> cycles</span></div>
+    <br />
+    <div><span>Charge Retention And Recovery = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
+    <br />
+    <div><span>Charge Recovery After Storage = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
+    <br />
+    <div><p><h3>Short Circuit Test</h3></p><br /><p id="sct"></p></div>
+    <script>
+        if (localStorage.getItem("checked") == "yes") {
+            document.getElementById("sct").innerHTML = "The battery couldn't withstand a short circuit condition. Therefore the battery is not upto the standard.";
+        } else {
+            document.getElementById("sct").innerHTML = "The battery could withstand a short circuit condition. Therefore the battery is upto the standard conditions.";
+        }
+
+
+    </script>
+    <div><p><h3>Continuous Charge Test</h3></p><br /><p id="cct"></p></div>
+    <div><p><h3>Over Charge Test</h3></p><br /><p id="oct"></p></div>
+
+</body>
