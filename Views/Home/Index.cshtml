@@ -1,9 +1,133 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style type="text/css">
+    .grey {
+        background-color: lightgray
+    }
+
+    .box {
+        background-color: lightgrey;
+        width: 300px;
+        border: 10px solid green;
+        padding: 25px;
+        margin: 10px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+
+        .grid-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 20px;
+            height:70px
+        }
+
+    .item1 {
+        grid-column-start: 1;
+        grid-column-start: 3;
+    }
+    .itemx {
+        grid-column-start: 0;
+        grid-column-start: 4;
+    }
+</style>
     <body class="grey">
         <div id="app">
-            <home-component></home-component>
+            <div class="grey">
+                <h1 class="text-center">Li-Iron Battery Test Bench</h1>
+                <br />
+                <br />
+                <br />
+                <div class="grid-container">
+                    <div class="item1">Battery Is Chaging</div>
+                    <div class="item2">
+                        <span>
+                            <label class="radio-inline">
+                                <input type="radio" value="off" id="myRadio3" name="last2">NO
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" value="on" id="myRadio4" name="last2">YES
+                            </label>
+                        </span>
+                    </div>
+                    <div class="item1">Battery Is Dischaging</div>
+                    <div class="item3">
+                        <span>
+                            <label class="radio-inline">
+                                <input type="radio" value="off" id="myRadio1" name="last3">NO
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" value="on" id="myRadio2" name="last3">YES
+                            </label>
+                        </span>
+                    </div>
+                    <div class="item1">Put the Value of I<sub>t</sub></div>
+                    <div class="item4"><input type="text" id="ivalue" value=""></div>
+                    <div class="item1">Put the Value of T</div>
+                    <div class="item4"><input type="text" id="tvalue" value=""></div>
+                    <div class="item1">Rated Capasity of Fresh Battrey</div>
+                    <div class="item4"><input type="text" id="rcvalue" value=""></div>
+                    <div class="itemx"><button onclick="dataCal()">summits</button></div>
+                </div>
+                <br />
+                <br />
+                <div class="text-center">
+                    <span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span>
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block; width: 50%;">
+                        Rated Capacity =
+                        <input type="text" id="rc" name="rc" value="">
+                    </span>
+                </div>
+                <br />
+                <div class="text-center">
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block;">
+                        State of Health (SOH) =
+                        <input type="text" id="soh" name="soh" value="">
+                    </span>
+                </div>
+                <br />
+                <div class="text-center">
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block;">
+                        State of Charge (SOH) =
+                        <input type="text" id="soc" name="soc" value="">
+                    </span>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/Shortccttest" style="border-style: groove;">Short Circuit Test</a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/ChargeRetention" style="border-style: groove;">Charge Retention And Recovery</a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/ChargeRecovery" style="border-style: groove;">Charge Recovery After Storage</a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/OverchargeTest" style="border-style: groove;">Overcharge Test</a>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a>
+                </div>
+                <br />
+            </div>
         </div>
     </body>
 <!--class="text-center" class="display-4"-->
@@ -27,11 +151,24 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     var ref = firebase.database().ref();
-    ref.on("value", function (snapshot) {
-        var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
-        console.log(obj);
-       
-    });
+    function updateData() {
+        dataCal();
+        ref.on("value", function (snapshot) {
+            var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
+            console.log(obj);
+
+        });
+    }
+    updateData();
+    setInterval(updateData, 3000000);
+    function dataCal() {
+        var ivalue = document.getElementById("ivalue").value;
+        var tvalue = document.getElementById("tvalue").value;
+        var rcvalue = document.getElementById("rcvalue").value;
+        console.log(ivalue, tvalue);
+        document.getElementById("rc").value = 0.2 * (Number)(ivalue) * (Number)(tvalue);
+        document.getElementById("soh").value = 0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue) ;
+    }
 </script>
 <style>
     .grey {
