@@ -9,6 +9,7 @@
     .box {
         background-color: lightgrey;
         width: 300px;
+        height:100px;
         border: 10px solid green;
         padding: 25px;
         margin: 10px;
@@ -36,6 +37,53 @@
         grid-column-start: 0;
         grid-column-start: 4;
     }
+
+    .grid-container2 {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+
+        .grid-container2 > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 20px;
+            height: 150px
+        }
+
+    .item1 {
+        grid-column-start: 1;
+        grid-column-start: 3;
+    }
+
+    .itemx {
+        grid-column-start: 0;
+        grid-column-start: 4;
+    }
+    .grid-container3 {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px;
+    }
+
+        .grid-container3 > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-size: 20px;
+            height: 50px
+        }
+
+    .item1 {
+        grid-column-start: 1;
+        grid-column-start: 3;
+    }
+
+    .itemx {
+        grid-column-start: 0;
+        grid-column-start: 4;
+    }
 </style>
     <body class="grey">
         <div id="app">
@@ -44,26 +92,15 @@
                 <br />
                 <br />
                 <br />
-                <div class="grid-container">
-                    <div class="item1">Battery Is Chaging</div>
+                <div class="grid-container" style="background-color:antiquewhite">
+                    <div class="item1">Battery Status</div>
                     <div class="item2">
                         <span>
                             <label class="radio-inline">
-                                <input type="radio" value="off" id="myRadio3" name="last2">NO
+                                <input type="radio" value="off" id="myRadio3" name="last2">Charging
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" value="on" id="myRadio4" name="last2">YES
-                            </label>
-                        </span>
-                    </div>
-                    <div class="item1">Battery Is Dischaging</div>
-                    <div class="item3">
-                        <span>
-                            <label class="radio-inline">
-                                <input type="radio" value="off" id="myRadio1" name="last3">NO
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" value="on" id="myRadio2" name="last3">YES
+                                <input type="radio" value="on" id="myRadio4" name="last2">Discharging
                             </label>
                         </span>
                     </div>
@@ -73,60 +110,54 @@
                     <div class="item4"><input type="text" id="tvalue" value=""></div>
                     <div class="item1">Rated Capasity of Fresh Battrey</div>
                     <div class="item4"><input type="text" id="rcvalue" value=""></div>
-                    <div class="itemx"><button onclick="dataCal()">summits</button></div>
+                    <div class="itemx"><button onclick="dataCal(null)">summits</button></div>
                 </div>
                 <br />
                 <br />
-                <div class="text-center">
-                    <span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span>
-                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block; width: 50%;">
-                        Rated Capacity =
+                <h1 style="margin-bottom:20px">Operations and More Details</h1>
+                <br />
+                <br />
+                <div class="grid-container3" style="background-color:antiquewhite">
+                    <div class="item1">Temperature now</div>
+                    <div class="item4"><input type="text" id="temvalue" value=""></div>
+                    <div class="item1">Date</div>
+                    <div class="item4"><input type="text" id="datevalue" value=""></div>
+                    <div class="item1">Time</div>
+                    <div class="item4"><input type="text" id="timevalue" value=""></div>
+                </div>
+                <br />
+                <br />
+                <div class="grid-container2" style="background-color:aquamarine">
+                    <div class="item1">
+                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block; width: 50%;">
+                            Rated Capacity =
+                        </span>
+                    </div>
+                    <div class="item4">
                         <input type="text" id="rc" name="rc" value="">
-                    </span>
+                    </div>
+                    <div class="item1">
+                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
+                            State of Health (SOH) =
+                        </span>
+                    </div>
+                    <div class="item4"> <input type="text" id="soh" name="soh" value=""></div>
+                    <div class="item1">
+                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
+                            State of Charge (SOC) =
+                        </span>
+                    </div>
+
+                    <div class="item4"><input type="text" id="soc" name="soc" value=""></div>
+                    <div class="item1"><a href="https://localhost:44354/home/Shortccttest" style="border-style: groove;">Short Circuit Test</a></div>
+                    <div class="item4"><a href="https://localhost:44354/home/ChargeRetention" style="border-style: groove;">Charge Retention And Recovery</a></div>
+                    <div class="item1"><a href="https://localhost:44354/home/ChargeRecovery" style="border-style: groove;">Charge Recovery After Storage</a></div>
+                    <div class="item4"><a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a></div>
+                    <div class="item1"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
+                    <div class="item4"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
+                    <div class="item1"><a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a></div>
+                    <div class="item4"><span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span></div>
                 </div>
-                <br />
-                <div class="text-center">
-                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block;">
-                        State of Health (SOH) =
-                        <input type="text" id="soh" name="soh" value="">
-                    </span>
-                </div>
-                <br />
-                <div class="text-center">
-                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:50px; display: inline-block;">
-                        State of Charge (SOH) =
-                        <input type="text" id="soc" name="soc" value="">
-                    </span>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/Shortccttest" style="border-style: groove;">Short Circuit Test</a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/ChargeRetention" style="border-style: groove;">Charge Retention And Recovery</a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/ChargeRecovery" style="border-style: groove;">Charge Recovery After Storage</a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/OverchargeTest" style="border-style: groove;">Overcharge Test</a>
-                </div>
-                <br />
-                <div class="text-center">
-                    <a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a>
-                </div>
-                <br />
             </div>
         </div>
     </body>
@@ -138,6 +169,8 @@
 <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 <script>
     // Your web app's Firebase configuration
+    var startsoc = 100;
+    document.cookie = "startsoc=" + startsoc + ";"; 
     var firebaseConfig = {
         apiKey: "AIzaSyB_N4gMHf1BrJpa2KsWqedPIH6hRe7W4YY",
         authDomain: "data-ad105.firebaseapp.com",
@@ -152,22 +185,70 @@
     firebase.initializeApp(firebaseConfig);
     var ref = firebase.database().ref();
     function updateData() {
-        dataCal();
+        
         ref.on("value", function (snapshot) {
             var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
-            console.log(obj);
-
-        });
+            dataCal(obj);
+        }); 
     }
     updateData();
-    setInterval(updateData, 3000000);
-    function dataCal() {
+    setInterval(updateData, 30000);
+    function dataCal(obj) {
+        var lastObject = Object.keys(obj)[Object.keys(obj).length - 1];
         var ivalue = document.getElementById("ivalue").value;
         var tvalue = document.getElementById("tvalue").value;
-        var rcvalue = document.getElementById("rcvalue").value;
-        console.log(ivalue, tvalue);
+        var rcvalue = document.getElementById("rcvalue").value; 
         document.getElementById("rc").value = 0.2 * (Number)(ivalue) * (Number)(tvalue);
-        document.getElementById("soh").value = 0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue) ;
+        var ratedC = 0.2 * (Number)(ivalue) * (Number)(tvalue);
+        document.getElementById("soh").value = 0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue);
+        console.log(obj[lastObject])
+        var lastObjectData = obj[lastObject][Object.keys(obj[lastObject])[Object.keys(obj[lastObject]).length - 1]];
+        var startTime = Object.keys(obj[lastObject])[0];
+        var endTime = lastObjectData.Time;
+        console.log(lastObjectData.Temperature);
+        document.getElementById("temvalue").value = lastObjectData.Temperature ;
+        document.getElementById("datevalue").value = new Date().toISOString().slice(0, 10);;
+        document.getElementById("timevalue").value = endTime;
+        document.cookie = "endsavetime=" + endTime + ";";
+
+        var timedeff = (hmsToSeconds(endTime) - hmsToSeconds(getCookie("endsavetime")));
+        if (getCookie("startsoc") == 100) {
+            console.log("First TIme")
+            var timedeff = (hmsToSeconds(endTime) - hmsToSeconds(startTime));
+        }
+        console.log(startTime, endTime, timedeff, getCookie("endsavetime"), getCookie("startsoc"));
+        if (document.getElementById("myRadio3").checked) {
+            console.log('charging');
+            document.getElementById("soc").value = getCookie("startsoc") + lastObjectData.Current * timedeff / ratedC;;
+            document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";";
+        }
+        if (document.getElementById("myRadio4").checked) {
+            console.log('discharging');
+            console.log(lastObjectData.Current );
+            console.log(ratedC);
+            console.log(lastObjectData.Current * timedeff / ratedC);
+            document.getElementById("soc").value = getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC;
+            document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";"; 
+        }
+    }
+    function hmsToSeconds(s) {
+        var b = s.split(':');
+        return b[0] * 3600 + b[1] * 60 + (+b[2] || 0);
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
     }
 </script>
 <style>
