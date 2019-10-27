@@ -134,7 +134,7 @@
                         </span>
                     </div>
                     <div class="item4">
-                        <input type="text" id="rc" name="rc" value="">
+                        <input type="text" id="rcav" name="rc" value="">
                     </div>
                     <div class="item1">
                         <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
@@ -159,6 +159,9 @@
                     <div class="item4"><span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span></div>
                 </div>
             </div>
+        </div>
+        <div>
+            <p id="rcap"></p>
         </div>
     </body>
 <!--class="text-center" class="display-4"-->
@@ -197,7 +200,7 @@
         var lastObject = Object.keys(obj)[Object.keys(obj).length - 1];
         var ivalue = document.getElementById("ivalue").value;
         var tvalue = document.getElementById("tvalue").value;
-        var rcvalue = document.getElementById("rcvalue").value; 
+        var rcvalue = document.getElementById("rcvalue").value;
         document.getElementById("rc").value = 0.2 * (Number)(ivalue) * (Number)(tvalue);
         var ratedC = 0.2 * (Number)(ivalue) * (Number)(tvalue);
         document.getElementById("soh").value = 0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue);
@@ -230,6 +233,12 @@
             document.getElementById("soc").value = getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC;
             document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";"; 
         }
+        localStorage.setItem('rc', ratedC);
+        localStorage.setItem('i', ivalue);
+        localStorage.setItem('t', tvalue);
+        localStorage.setItem('b', rcvalue);
+        localStorage.setItem('soh', document.getElementById("soh").value);
+
     }
     function hmsToSeconds(s) {
         var b = s.split(':');
@@ -250,6 +259,13 @@
         }
         return "";
     }
+</script>
+<script>
+    document.getElementById("rcav").value = localStorage.getItem("rc");
+    document.getElementById("ivalue").value = localStorage.getItem("i");
+    document.getElementById("tvalue").value = localStorage.getItem("t");
+    document.getElementById("rcvalue").value = localStorage.getItem("b");
+    document.getElementById("rcap").innerHTML = localStorage.getItem("rc");
 </script>
 <style>
     .grey {

@@ -23,10 +23,10 @@
     <h1>Result Sheet</h1>
 
     <div>
-        <span>Rated Capacity = </span><span><input type="text" /></span>
+        <span>Rated Capacity = </span><span><input id="rca" type="text" /></span>
     </div>
     <br />
-    <div><span>State of Health = </span><span><input type="text" /></span></div>
+    <div><span>State of Health = </span><span><input id="sohe" type="text" /></span></div>
     <br />
     <div>
         <p>
@@ -66,3 +66,8 @@
     </script>
 
 </body>
+
+<script>
+    document.getElementById("rca").value = localStorage.getItem("rc");
+    document.getElementById("sohe").value = localStorage.getItem("soh");
+</script>
