@@ -9,11 +9,12 @@
     .box {
         background-color: lightgrey;
         width: 300px;
-        height:100px;
+        height: 100px;
         border: 10px solid green;
         padding: 25px;
         margin: 10px;
     }
+
     .grid-container {
         display: grid;
         grid-template-columns: auto auto auto auto;
@@ -26,13 +27,14 @@
             text-align: center;
             padding: 20px 0;
             font-size: 20px;
-            height:70px
+            height: 70px
         }
 
     .item1 {
         grid-column-start: 1;
         grid-column-start: 3;
     }
+
     .itemx {
         grid-column-start: 0;
         grid-column-start: 4;
@@ -62,6 +64,7 @@
         grid-column-start: 0;
         grid-column-start: 4;
     }
+
     .grid-container3 {
         display: grid;
         grid-template-columns: auto auto auto auto;
@@ -85,85 +88,82 @@
         grid-column-start: 4;
     }
 </style>
-    <body class="grey">
-        <div id="app">
-            <div class="grey">
-                <h1 class="text-center">Li-Iron Battery Test Bench</h1>
-                <br />
-                <br />
-                <br />
-                <div class="grid-container" style="background-color:antiquewhite">
-                    <div class="item1">Battery Status</div>
-                    <div class="item2">
-                        <span>
-                            <label class="radio-inline">
-                                <input type="radio" value="off" id="myRadio3" name="last2">Charging
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" value="on" id="myRadio4" name="last2">Discharging
-                            </label>
-                        </span>
-                    </div>
-                    <div class="item1">Put the Value of I<sub>t</sub></div>
-                    <div class="item4"><input type="text" id="ivalue" value=""></div>
-                    <div class="item1">Put the Value of T</div>
-                    <div class="item4"><input type="text" id="tvalue" value=""></div>
-                    <div class="item1">Rated Capasity of Fresh Battrey</div>
-                    <div class="item4"><input type="text" id="rcvalue" value=""></div>
-                    <div class="itemx"><button onclick="dataCal(null)">summits</button></div>
+<body class="grey">
+    <div id="app">
+        <div class="grey">
+            <h1 class="text-center">Li-Iron Battery Test Bench</h1>
+            <br />
+            <br />
+            <br />
+            <div class="grid-container" style="background-color:antiquewhite">
+                <div class="item1">Battery Status</div>
+                <div class="item2">
+                    <span>
+                        <label class="radio-inline">
+                            <input type="radio" value="off" id="myRadio3" name="last2">Charging
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="on" id="myRadio4" name="last2">Discharging
+                        </label>
+                    </span>
                 </div>
-                <br />
-                <br />
-                <h1 style="margin-bottom:20px">Operations and More Details</h1>
-                <br />
-                <br />
-                <div class="grid-container3" style="background-color:antiquewhite">
-                    <div class="item1">Temperature now</div>
-                    <div class="item4"><input type="text" id="temvalue" value=""></div>
-                    <div class="item1">Date</div>
-                    <div class="item4"><input type="text" id="datevalue" value=""></div>
-                    <div class="item1">Time</div>
-                    <div class="item4"><input type="text" id="timevalue" value=""></div>
+                <div class="item1">Put the Value of I<sub>t</sub></div>
+                <div class="item4"><input type="text" id="ivalue" value=""></div>
+                <div class="item1">Put the Value of T</div>
+                <div class="item4"><input type="text" id="tvalue" value=""></div>
+                <div class="item1">Rated Capasity of Fresh Battrey</div>
+                <div class="item4"><input type="text" id="rcvalue" value=""></div>
+                <div class="itemx"><button onclick="dataCal(null)">summits</button></div>
+            </div>
+            <br />
+            <br />
+            <h1 style="margin-bottom:20px">Operations and More Details</h1>
+            <br />
+            <br />
+            <div class="grid-container3" style="background-color:antiquewhite">
+                <div class="item1">Temperature now</div>
+                <div class="item4"><input type="text" id="temvalue" value=""></div>
+                <div class="item1">Date</div>
+                <div class="item4"><input type="text" id="datevalue" value=""></div>
+                <div class="item1">Time</div>
+                <div class="item4"><input type="text" id="timevalue" value=""></div>
+            </div>
+            <br />
+            <br />
+            <div class="grid-container2" style="background-color:aquamarine">
+                <div class="item1">
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block; width: 50%;">
+                        Rated Capacity =
+                    </span>
                 </div>
-                <br />
-                <br />
-                <div class="grid-container2" style="background-color:aquamarine">
-                    <div class="item1">
-                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block; width: 50%;">
-                            Rated Capacity =
-                        </span>
-                    </div>
-                    <div class="item4">
-                        <input type="text" id="rcav" name="rc" value="">
-                    </div>
-                    <div class="item1">
-                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
-                            State of Health (SOH) =
-                        </span>
-                    </div>
-                    <div class="item4"> <input type="text" id="soh" name="soh" value=""></div>
-                    <div class="item1">
-                        <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
-                            State of Charge (SOC) =
-                        </span>
-                    </div>
+                <div class="item4">
+                    <input type="text" id="rc" name="rc" value="">
+                </div>
+                <div class="item1">
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
+                        State of Health (SOH) =
+                    </span>
+                </div>
+                <div class="item4"> <input type="text" id="soh" name="soh" value=""></div>
+                <div class="item1">
+                    <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
+                        State of Charge (SOC) =
+                    </span>
+                </div>
 
-                    <div class="item4"><input type="text" id="soc" name="soc" value=""></div>
-                    <div class="item1"><a href="https://localhost:44354/home/Shortccttest" style="border-style: groove;">Short Circuit Test</a></div>
-                    <div class="item4"><a href="https://localhost:44354/home/ChargeRetention" style="border-style: groove;">Charge Retention And Recovery</a></div>
-                    <div class="item1"><a href="https://localhost:44354/home/ChargeRecovery" style="border-style: groove;">Charge Recovery After Storage</a></div>
-                    <div class="item4"><a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a></div>
-                    <div class="item1"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
-                    <div class="item4"><a href="https://localhost:44354/home/OverchargeTest" style="border-style: groove;">Over Charge Set</a></div>
-                    <div class="item1"><a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a></div>
-                    <div class="item4"><span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span></div>
-                </div>
+                <div class="item4"><input type="text" id="soc" name="soc" value=""></div>
+                <div class="item1"><a href="https://localhost:44354/home/Shortccttest" style="border-style: groove;">Short Circuit Test</a></div>
+                <div class="item4"><a href="https://localhost:44354/home/ChargeRetention" style="border-style: groove;">Charge Retention And Recovery</a></div>
+                <div class="item1"><a href="https://localhost:44354/home/ChargeRecovery" style="border-style: groove;">Charge Recovery After Storage</a></div>
+                <div class="item4"><a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a></div>
+                <div class="item1"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
+                <div class="item4"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
+                <div class="item1"><a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a></div>
+                <div class="item4"><span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span></div>
             </div>
         </div>
-        <div>
-            <p id="rcap"></p>
-        </div>
-    </body>
+    </div>
+</body>
 <!--class="text-center" class="display-4"-->
 @section Scripts{
     <script src="@Url.Content("~/bundle/home.js")"></script>
@@ -173,7 +173,7 @@
 <script>
     // Your web app's Firebase configuration
     var startsoc = 100;
-    document.cookie = "startsoc=" + startsoc + ";"; 
+    document.cookie = "startsoc=" + startsoc + ";";
     var firebaseConfig = {
         apiKey: "AIzaSyB_N4gMHf1BrJpa2KsWqedPIH6hRe7W4YY",
         authDomain: "data-ad105.firebaseapp.com",
@@ -188,11 +188,11 @@
     firebase.initializeApp(firebaseConfig);
     var ref = firebase.database().ref();
     function updateData() {
-        
+
         ref.on("value", function (snapshot) {
             var obj = JSON.parse(JSON.stringify(snapshot.val(), null, 2));
             dataCal(obj);
-        }); 
+        });
     }
     updateData();
     setInterval(updateData, 30000);
@@ -209,7 +209,7 @@
         var startTime = Object.keys(obj[lastObject])[0];
         var endTime = lastObjectData.Time;
         console.log(lastObjectData.Temperature);
-        document.getElementById("temvalue").value = lastObjectData.Temperature ;
+        document.getElementById("temvalue").value = lastObjectData.Temperature;
         document.getElementById("datevalue").value = new Date().toISOString().slice(0, 10);;
         document.getElementById("timevalue").value = endTime;
         document.cookie = "endsavetime=" + endTime + ";";
@@ -227,18 +227,12 @@
         }
         if (document.getElementById("myRadio4").checked) {
             console.log('discharging');
-            console.log(lastObjectData.Current );
+            console.log(lastObjectData.Current);
             console.log(ratedC);
             console.log(lastObjectData.Current * timedeff / ratedC);
             document.getElementById("soc").value = getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC;
-            document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";"; 
+            document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";";
         }
-        localStorage.setItem('rc', ratedC);
-        localStorage.setItem('i', ivalue);
-        localStorage.setItem('t', tvalue);
-        localStorage.setItem('b', rcvalue);
-        localStorage.setItem('soh', document.getElementById("soh").value);
-
     }
     function hmsToSeconds(s) {
         var b = s.split(':');
@@ -259,13 +253,6 @@
         }
         return "";
     }
-</script>
-<script>
-    document.getElementById("rcav").value = localStorage.getItem("rc");
-    document.getElementById("ivalue").value = localStorage.getItem("i");
-    document.getElementById("tvalue").value = localStorage.getItem("t");
-    document.getElementById("rcvalue").value = localStorage.getItem("b");
-    document.getElementById("rcap").innerHTML = localStorage.getItem("rc");
 </script>
 <style>
     .grey {
