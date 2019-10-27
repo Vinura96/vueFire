@@ -3,7 +3,18 @@
     ViewData["Title"] = "OverchargeTest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script>
+    function passOCTValues() {
+        var a = document.getElementById("n1");
+        var b = document.getElementById("n2");
+        if (a.checked && b.checked) {
+            localStorage.setItem('checkedoct', 'no');
+        } else {
+            localStorage.setItem('checkedoct', 'yes');
+        }
+        return false;
+    }
+</script>
 <style type="text/css">
     .grey {
         background-color:lightgray
@@ -38,43 +49,27 @@
     <div style="font-size:18px;font-weight: bold;text-align:left;margin-bottom:10px;"> Observations</div>
     <div style="font-size:16px;font-weight: bold;text-align:left;margin-bottom:50px;">
         <div>
-            <span> ANY APPROCIMATION</span>
+            <span> Any Explotions?</span>
             <label class="radio-inline">
-                <input type="radio" name="A1">YES
+                <input type="radio" name="A1" id="y1">YES
             </label>
             <label class="radio-inline">
-                <input type="radio" name="A1">NO
+                <input type="radio" name="A1" id="n1">NO
             </label>
         </div>
         <div>
-            <span> ANY FIRE</span>
+            <span> Any Fire?</span>
             <label class="radio-inline">
-                <input type="radio" name="F1">YES
+                <input type="radio" name="F1" id="y2">YES
             </label>
             <label class="radio-inline">
-                <input type="radio" name="F1">NO
+                <input type="radio" name="F1" id="n2">NO
             </label>
         </div>
     </div>
-
-    <ul style="font-size:18px;font-weight: bold;margin-bottom:25px">
-        <li>State note E if all the Observations were</li>
-        <span>
-            <label class="radio-inline">
-                <input type="radio" name="last1">NO
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="last1">YES
-            </label>
-        </span>
-        <li>State node F if one of 2 observation were</li>
-        <span>
-            <label class="radio-inline">
-                <input type="radio" name="last2">NO
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="last2">YES
-            </label>
-        </span>'
-    </ul>
+    <div>
+        <form action="https://localhost:44354/">
+            <input type="submit" value="Submit" onclick="passOCTValues();" />
+        </form>
+    </div>
 </body>

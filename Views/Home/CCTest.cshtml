@@ -3,7 +3,19 @@
     ViewData["Title"] = "CCTest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script>
+    function passCCTValues() {
+        var f = document.getElementById("n11");
+        var g = document.getElementById("n22");
+        var h = document.getElementById("n33");
+        if (f.checked && g.checked && h.checked) {
+            localStorage.setItem('checkedcct', 'no');
+        } else {
+            localStorage.setItem('checkedcct', 'yes');
+        }
+        return false;
+    }
+</script>
 
 <style type="text/css">
     .grey {
@@ -24,52 +36,36 @@
     <div style="font-size:18px;font-weight: bold;text-align:left;margin-bottom:10px;"> Observations</div>
     <div style="font-size:16px;font-weight: bold;text-align:left;margin-bottom:50px;">
         <div>
-            <span> ANY LEAKAGES</span>
+            <span> Any Leakages?</span>
             <label class="radio-inline">
-                <input type="radio" name="A1">YES
+                <input type="radio" id="y11" name="A1">YES
             </label>
             <label class="radio-inline">
-                <input type="radio" name="A1">NO
-            </label>
-        </div>
-        <div>
-            <span> ANY VENTING</span>
-            <label class="radio-inline">
-                <input type="radio" name="A1">YES
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="A1">NO
+                <input type="radio" id="n11" name="A1">NO
             </label>
         </div>
         <div>
-            <span> ANY EXPOLTION</span>
+            <span> Any Venting?</span>
             <label class="radio-inline">
-                <input type="radio" name="F1">YES
+                <input type="radio" id="y22" name="A2">YES
             </label>
             <label class="radio-inline">
-                <input type="radio" name="F1">NO
+                <input type="radio" id="n22" name="A2">NO
             </label>
+        </div>
+        <div>
+            <span> Any Explotion?</span>
+            <label class="radio-inline">
+                <input type="radio" id="y33" name="F1">YES
+            </label>
+            <label class="radio-inline">
+                <input type="radio" id="n33" name="F1">NO
+            </label>
+        </div>
+        <div>
+            <form action="https://localhost:44354/">
+                <input type="submit" value="Submit" onclick="passCCTValues();" />
+            </form>
         </div>
     </div>
-
-    <ul style="font-size:18px;font-weight: bold;margin-bottom:25px">
-        <li>State note C if all the Observations were</li>
-        <span>
-            <label class="radio-inline">
-                <input type="radio" name="last1">NO
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="last1">YES
-            </label>
-        </span>
-        <li>State node D if one of 2 observation were</li>
-        <span>
-            <label class="radio-inline">
-                <input type="radio" name="last2">NO
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="last2">YES
-            </label>
-        </span>'
-    </ul>
 </body>

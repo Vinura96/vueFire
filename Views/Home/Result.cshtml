@@ -47,10 +47,22 @@
         } else {
             document.getElementById("sct").innerHTML = "The battery could withstand a short circuit condition. Therefore the battery is upto the standard conditions.";
         }
-
-
     </script>
     <div><p><h3>Continuous Charge Test</h3></p><br /><p id="cct"></p></div>
+    <script>
+        if (localStorage.getItem("checkedcct") == "yes") {
+            document.getElementById("cct").innerHTML = "The battery couldn't withstand a continuous charging for an extended time period.Therefore the battery is not upto the standard.";
+        } else {
+            document.getElementById("cct").innerHTML = "The battery could withstand a continuous charging for an extended time period. Therefore the battery is upto the standard.";
+        }
+    </script>
     <div><p><h3>Over Charge Test</h3></p><br /><p id="oct"></p></div>
+    <script>
+        if (localStorage.getItem("checkedoct") == "yes") {
+            document.getElementById("oct").innerHTML = "The battery couldn't withstand a charger malfunction where the upper voltage is only limited by the charger. Therefore the battery is not upto the standard level.";
+        } else {
+            document.getElementById("oct").innerHTML = "The battery could withstand a charger malfunction where the upper voltage is only limited by the charger. Therefore the battery is upto the standard level.";
+        }
+    </script>
 
 </body>

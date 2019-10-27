@@ -5,13 +5,13 @@
 }
 <script>
     function passValues() {
-        var f = document.getElementById("yes1");
-        var g = document.getElementById("yes2");
-        var h = document.getElementById("yes3");
+        var f = document.getElementById("no1");
+        var g = document.getElementById("no2");
+        var h = document.getElementById("no3");
         if (f.checked && g.checked && h.checked) {
-            localStorage.setItem('checked', 'yes');
-        } else {
             localStorage.setItem('checked', 'no');
+        } else {
+            localStorage.setItem('checked', 'yes');
         }
         return false;
     }
@@ -26,7 +26,6 @@
         padding: 10px;
     }
 
-    <!-- Might want to wrap a span around your checkbox text -->
     .checkboxtext {
         font-size: 110%;
         display: inline;
@@ -49,45 +48,42 @@
     input#no3{
         margin-left: 45px;
     }
+    .grey {
+        background-color: lightgray
+    }
 </style>
-
-<h1>Short Circuit Test</h1>
-<br />
-<p>
-    Please Follow the below Steps<br />
-    1. Conduct two seperate tests, one in ambient temperature of 20&#176;C &#177; 5&#176;C and one in an ambient temperature of 55&#176;C &#177; 2&#176;C<br />
-    (external resistance should be less than 50m&#937;)<br />
-    2. Continue the tests until the battery voltage falls below 0.1V or the electronic circuit or the current limiting device prevents further discharge and the cell case temperature has returned to //notclear within 10&#176;C of
-    the original temperature.<br />
-</p>
-<h3>Observations :-&emsp; YES&emsp;NO</h3>
-<div>
-    <span>Any Explotions? </span>
-    <span><input type="checkbox" name="yes1" id="yes1" /></span>
-    <span><input type="checkbox" name="no1" id="no1" /></span>
-</div>
-<br />
-<div>
-    <span>Fine?</span>
-    <span><input type="checkbox" name="yes2" id="yes2" /></span>
-    <span><input type="checkbox" name="no2" id="no2" /></span>
-</div>
-<br />
-<div>
-    <span>Exterior temperature than 150&#176;C?</span>
-    <span><input type="checkbox" name="yes3" id="yes3" /></span>
-    <span><input type="checkbox" name="no3" id="no3" /></span>
-</div>
-<br />
-<div>
-    <span>
-        According to the observations,<br />
-        Note A: The battery could withstand a short circuit condition. Therefore the battery is upto the standard conditions.<br />
-        Note B: The battery couldn't withstand a short circuit condition. Therefore the battery is not upto the standard.<br />
-    </span>
-</div>
-<div>
-    <form action="https://localhost:44354/">
-        <input type="submit" value="click" onclick="passValues();" />
-    </form>
-</div>
+<body class="grey">
+    <h1>Short Circuit Test</h1>
+    <br />
+    <p>
+        Please Follow the below Steps<br />
+        1. Conduct two seperate tests, one in ambient temperature of 20&#176;C &#177; 5&#176;C and one in an ambient temperature of 55&#176;C &#177; 2&#176;C<br />
+        (external resistance should be less than 50m&#937;)<br />
+        2. Continue the tests until the battery voltage falls below 0.1V or the electronic circuit or the current limiting device prevents further discharge and the cell case temperature has returned to a value within 10&#176;C of
+        the original temperature.<br />
+    </p>
+    <h3>Observations :-&emsp; YES&emsp;NO</h3>
+    <div>
+        <span>Any Explotions? </span>
+        <span><input type="checkbox" name="yes1" id="yes1" /></span>
+        <span><input type="checkbox" name="no1" id="no1" /></span>
+    </div>
+    <br />
+    <div>
+        <span>Fire?</span>
+        <span><input type="checkbox" name="yes2" id="yes2" /></span>
+        <span><input type="checkbox" name="no2" id="no2" /></span>
+    </div>
+    <br />
+    <div>
+        <span>Exterior temperature than 150&#176;C?</span>
+        <span><input type="checkbox" name="yes3" id="yes3" /></span>
+        <span><input type="checkbox" name="no3" id="no3" /></span>
+    </div>
+    <br />
+    <div>
+        <form action="https://localhost:44354/">
+            <input type="submit" value="Submit" onclick="passValues();" />
+        </form>
+    </div>
+</body>
