@@ -34,7 +34,7 @@
             But other than the capacity, internal resistance, self-discharge acceptance, discharge capabilities might also effect the SOH.)
         </p>
     </div>
-    <div><span>Enduarance in Cycles = </span><span><input type="text" /></span><span> cycles</span></div>
+    <div><span>Enduarance in Cycles = </span><span><input id="enc" type="text" /></span><span> cycles</span></div>
     <br />
     <div><span>Charge Retention And Recovery = </span><span><input type="text" /></span><span> % of Rated Capacity</span></div>
     <br />
@@ -70,4 +70,5 @@
 <script>
     document.getElementById("rca").value = localStorage.getItem("rc");
     document.getElementById("sohe").value = localStorage.getItem("soh");
+    document.getElementById("enc").value = localStorage.getItem("eoc");
 </script>

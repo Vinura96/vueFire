@@ -137,14 +137,14 @@
                     </span>
                 </div>
                 <div class="item4">
-                    <input type="text" id="rc" name="rc" value="">
+                    <input type="text" id="rc" name="rc">
                 </div>
                 <div class="item1">
                     <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
                         State of Health (SOH) =
                     </span>
                 </div>
-                <div class="item4"> <input type="text" id="soh" name="soh" value=""></div>
+                <div class="item4"> <input type="text" id="soh" name="soh"></div>
                 <div class="item1">
                     <span class="box" style="font-size:16px;font-weight: bold;text-align:center;margin-bottom:5px; display: inline-block;">
                         State of Charge (SOC) =
@@ -158,7 +158,7 @@
                 <div class="item4"><a href="https://localhost:44354/home/Enduarance"><span style="border-style: groove;">Enduarance In Cycles</span></a></div>
                 <div class="item1"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
                 <div class="item4"><a href="https://localhost:44354/home/CCTest" style="border-style: groove;">Continuous Charge Set</a></div>
-                <div class="item1"><a href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a></div>
+                <div class="item1"><a id="rslt" href="https://localhost:44354/home/Result" style="border-style: groove;">Result sheet</a></div>
                 <div class="item4"><span><a href="https://localhost:44354/home/RatedCapacity" style="border-style: groove; width: 50%;"><b>Details of Rated Capacity</b></a></span></div>
             </div>
         </div>
@@ -203,6 +203,7 @@
         var rcvalue = document.getElementById("rcvalue").value;
         document.getElementById("rc").value = 0.2 * (Number)(ivalue) * (Number)(tvalue);
         var ratedC = 0.2 * (Number)(ivalue) * (Number)(tvalue);
+        var sohvalue =  0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue);
         document.getElementById("soh").value = 0.2 * (Number)(ivalue) * (Number)(tvalue) / (Number)(rcvalue);
         console.log(obj[lastObject])
         var lastObjectData = obj[lastObject][Object.keys(obj[lastObject])[Object.keys(obj[lastObject]).length - 1]];
@@ -219,13 +220,18 @@
             console.log("First TIme")
             var timedeff = (hmsToSeconds(endTime) - hmsToSeconds(startTime));
         }
+
+        var cooksoc = getCookie("startsoc");
+
         console.log(startTime, endTime, timedeff, getCookie("endsavetime"), getCookie("startsoc"));
         if (document.getElementById("myRadio3").checked) {
+            localStorage.setItem("charging", 1);
             console.log('charging');
             document.getElementById("soc").value = getCookie("startsoc") + lastObjectData.Current * timedeff / ratedC;;
             document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";";
         }
         if (document.getElementById("myRadio4").checked) {
+            localStorage.setItem("charging", 0);
             console.log('discharging');
             console.log(lastObjectData.Current);
             console.log(ratedC);
@@ -233,6 +239,37 @@
             document.getElementById("soc").value = getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC;
             document.cookie = "startsoc=" + getCookie("startsoc") - lastObjectData.Current * timedeff / ratedC + ";";
         }
+
+        var newsoc = document.getElementById("soc").value;
+        //var cooksoc = getCookie("startsoc");
+        
+        if (localStorage.getItem("cycles") === null) {
+            localStorage.setItem("cycles", 0);
+        }
+        if (newsoc > cooksoc) {
+            var chargingflag = localStorage.getItem("charging");
+            if (chargingflag == 0) {
+                localStorage.setItem("charging", 1);
+                var a = localStorage.getItem("cycles");
+                localStorage.setItem("cycles", parseFloat(a) + 0.5);
+            }
+        } else {
+            var chargingflag = localStorage.getItem("charging");
+            if (chargingflag == 1) {
+                localStorage.setItem("charging", 0);
+                var b = localStorage.getItem("cycles");
+                if (cooksoc <= 60) {
+                    localStorage.setItem("eoc", b);
+                    localStorage.setItem("cycles", 0);
+                } else {
+                    localStorage.setItem("cycles", parseFloat(b) + 0.5);
+                }
+            }
+        }
+
+        localStorage.setItem("rc", ratedC);
+        localStorage.setItem("soh", sohvalue);
+
     }
     function hmsToSeconds(s) {
         var b = s.split(':');
@@ -253,7 +290,21 @@
         }
         return "";
     }
+    function showFoo() {
+        var a = localStorage.getItem("rc");
+        console.log(a);
+        var b = localStorage.getItem("soh");
+        var url = window.location.hostname;
+        var data = String(url)+'?='+String(a) + '&' + String(b);
+        history.pushState(null, null, data);
+    }
+    //var el = document.getElementById('rslt');
+    //el.onclick = showFoo();
+
+    document.getElementById("rc").value = localStorage.getItem("rc");
+    document.getElementById("soh").value = localStorage.getItem("soh");
 </script>
+
 <style>
     .grey {
         background-color: lightgray
